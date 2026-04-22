@@ -97,15 +97,11 @@ http://localhost:3000/api-docs
 
 ### 🔐 Login Page
 
-![Login](./screenshots/login.png)
+![Login](./screenshots/Login.png)
 
 ### 👤 Profile Dashboard
 
 ![Profile](./screenshots/profile.png)
-
-### 📝 Create Post
-
-![Post](./screenshots/post.png)
 
 ### 👑 Admin Dashboard
 
