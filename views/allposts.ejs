@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Posts (Admin)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background: #2f3640;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        .post-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .user {
+            font-weight: bold;
+            color: #273c75;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete {
+            background: #e84118;
+            color: white;
+        }
+
+        .edit {
+            background: #00a8ff;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .empty {
+            text-align: center;
+            color: gray;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        Admin Dashboard - All Posts
+    </div>
+
+    <div class="container">
+
+        <% if(posts.length === 0) { %>
+            <div class="empty">No posts available</div>
+        <% } %>
+
+        <% posts.forEach(function(post){ %>
+            <div class="post-card">
+
+                <div class="user">
+                    👤 <%= post.user.username %> (<%= post.user.email %>)
+                </div>
+
+                <div class="content">
+                    <%= post.content %>
+                </div>
+
+                <div class="actions">
+                    
+                    <!-- Delete -->
+                    <a href="/delete/<%= post._id %>">
+                        <button class="btn delete">Delete</button>
+                    </a>
+
+                    <!-- Edit -->
+                    <a href="/edit/<%= post._id %>">
+                        <button class="btn edit">Edit</button>
+                    </a>
+
+                </div>
+
+            </div>
+        <% }) %>
+
+    </div>
+
+</body>
+</html>
